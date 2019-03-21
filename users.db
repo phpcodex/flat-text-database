@@ -1,0 +1,8 @@
+FTDB:1.0:Author:Richard JD:host:localhost:port:8000:protocol:http:path:/ftdb
+
+root:5f4dcc3b5aa765d61d8327deb882cf99:SELECT,INSERT,UPDATE,DELETE:%
+
+users:000000000:000000000:000000000:id,int(11),null:name,varchar(20):email,varchar(30):password,md5(),test:date,now()
+logs:000000000:000000000:000000000:id,int(11):time,now():comment,varchar(30)
+
+This is some information which should be in the table.
