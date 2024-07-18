@@ -18,6 +18,7 @@ use phpcodex\FTDB\Resources\FTDBReader;
  * @link     http://www.imleeds.com
  */
 
+#[\AllowDynamicProperties]
 class FTDBModel
 {
     protected $data;

@@ -15,6 +15,10 @@ class FTDBReader
     private $delimiter      = 10;
     private $delimiterCount = 0;
     private $data           = [];
+    /**
+     * @var false|resource
+     */
+    private $fp;
 
     /**
      * FTDBReader constructor.

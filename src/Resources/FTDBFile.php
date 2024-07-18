@@ -4,6 +4,7 @@ namespace phpcodex\FTDB\Resources;
 
 use phpcodex\FTDB\Exceptions\FTDBFileException;
 
+#[\AllowDynamicProperties]
 class FTDBFile
 {
 

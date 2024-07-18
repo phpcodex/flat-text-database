@@ -5,8 +5,18 @@ namespace phpcodex\FTDB\Resources;
 use phpcodex\FTDB\DataObjects\FTDBSchema;
 use phpcodex\FTDB\Exceptions\FTDBFileValidationException;
 
+#[\AllowDynamicProperties]
 class FTDBValidator
 {
+    /**
+     * @var array|string
+     */
+    private $file;
+    /**
+     * @var FTDBAuth
+     */
+    public $auth;
+
     /**
      * @param FTDBFile $ftdb
      * @return FTDBValidator

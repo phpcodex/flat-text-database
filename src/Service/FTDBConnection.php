@@ -9,6 +9,7 @@ use phpcodex\FTDB\Exceptions\FTDBConnectionException;
 use phpcodex\FTDB\Exceptions\FTDBFileException;
 use phpcodex\FTDB\Exceptions\FTDBFileValidationException;
 
+#[\AllowDynamicProperties]
 class FTDBConnection
 {
 
@@ -30,7 +31,7 @@ class FTDBConnection
      * @throws FTDBFileException
      * @throws FTDBFileValidationException
      */
-    public function connect(string $filename, string $connection_name, string $username = '', string $password = '', string $salt): FTDBConnection
+    public function connect(string $filename, string $connection_name, string $username = '', string $password = '', string $salt = null): FTDBConnection
     {
 
         //Point to our file.
