@@ -80,13 +80,17 @@ class FTDBField
         preg_match('/([0-9])+/', $type, $matches);
         $this->length = $matches[0] ?? 0;
 
-        if ($type == "md5()") {
-            $this->length = 32;
-        }
 
-        if ($type == "now()") {
-            //Example: 1970-01-01T00:00:00 +0100 GMT
-            $this->length = 29;
+        //this is where we would support specific implementations
+        //and overrides.
+        switch($type)
+        {
+            case "md5()":
+                $this->length = 32;
+                break;
+            case "now()":
+                $this->length = 29;
+                break;
         }
     }
 }

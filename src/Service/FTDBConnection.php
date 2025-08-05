@@ -31,7 +31,7 @@ class FTDBConnection
      * @throws FTDBFileException
      * @throws FTDBFileValidationException
      */
-    public function connect(string $filename, string $connection_name, string $username = '', string $password = '', string $salt = null): FTDBConnection
+    public function connect(string $filename, string $connection_name, $username = '', $password = '')
     {
 
         //Point to our file.
@@ -41,7 +41,7 @@ class FTDBConnection
         $auth = new FTDBAuth($username, $password);
 
         //Validate our file.
-        $validator = (new FTDBValidator)->check($connection, $auth, $salt);
+        $validator = (new FTDBValidator)->check($connection, $auth);
 
         $connection->version    = $validator->version;
         $connection->auth       = $validator->auth;
@@ -49,7 +49,7 @@ class FTDBConnection
 
         $this->storeConnection($connection, $connection_name);
 
-        return $this;
+        return $connection;
     }
 
     /**
@@ -69,5 +69,14 @@ class FTDBConnection
             }
         }
         $this->connections[$alias] = $connection;
+    }
+
+    public function getConnection($alias)
+    {
+        if (isset($this->connections[$alias])) {
+            return $this->connections[$alias];
+        } else {
+            throw new FTDBConnectionException('No connection to ' . $alias . ' available');
+        }
     }
 }

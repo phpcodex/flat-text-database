@@ -7,4 +7,4 @@ use phpcodex\FTDB\Service\FTDBConnection;
 $ftdb = new FTDBConnection;
 $ftdb->connect('users.db', 'users', 'root', 'password');
 
-echo '<pre>', print_r($ftdb);
+echo '<pre>', print_r($ftdb->getConnection('users'));
